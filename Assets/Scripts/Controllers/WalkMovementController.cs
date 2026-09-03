@@ -4,7 +4,11 @@ public class WalkMovementController : MovementController, IWalkable {
 
   [SerializeField] private float _movementSpeed;
 
+  private Vector2 _moveInput;
+
   private Rigidbody _rigidbody;
+
+  private bool _isInWater;
 
   protected override void Awake() {
     base.Awake();
@@ -20,26 +24,32 @@ public class WalkMovementController : MovementController, IWalkable {
     base.OnDisable();
   }
 
-  protected override void Update() {
-    base.Update();
+  private void Update() {
+    if (_isInWater) return;
+
+    _moveInput = _inputActions.Player.Move.ReadValue<Vector2>();
   }
 
   private void FixedUpdate() {
+    if (_isInWater) return;
+
     Walk();
   }
 
-  private void OnTriggerEnter(Collider other) {
-    if (other.TryGetComponent<Water>(out _)) enabled = false;
+  private void OnTriggerStay(Collider other) {
+    if (other.TryGetComponent<Water>(out _)) _isInWater = true;
   }
 
   private void OnTriggerExit(Collider other) {
-    if (other.TryGetComponent<Water>(out _)) enabled = true;
+    if (other.TryGetComponent<Water>(out _)) _isInWater = false;
   }
 
   public void Walk() {
     Vector3 movement = new(_moveInput.x, 0, _moveInput.y);
 
-    _rigidbody.MovePosition(_rigidbody.position + _movementSpeed * Time.fixedDeltaTime * movement);
+    Vector3 horizontalVelocity = _movementSpeed * movement;
+
+    _rigidbody.linearVelocity = new Vector3(horizontalVelocity.x, _rigidbody.linearVelocity.y, horizontalVelocity.z);
   }
 
 }

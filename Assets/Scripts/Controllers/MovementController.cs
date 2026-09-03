@@ -4,8 +4,6 @@ public abstract class MovementController : MonoBehaviour {
 
   protected InputSystem_Actions _inputActions;
 
-  protected Vector2 _moveInput;
-
   protected virtual void Awake() {
     _inputActions = new InputSystem_Actions();
   }
@@ -16,10 +14,6 @@ public abstract class MovementController : MonoBehaviour {
 
   protected virtual void OnDisable() {
     _inputActions.Disable();
-  }
-
-  protected virtual void Update() {
-    _moveInput = _inputActions.Player.Move.ReadValue<Vector2>();
   }
 
 }

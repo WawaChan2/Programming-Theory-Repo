@@ -5,9 +5,11 @@ public class FlyMovementController : MovementController, IFlyable {
 
   [SerializeField] private float _airLaunchSpeed;
 
+  private bool _isAirLaunchRequested;
+
   private Rigidbody _rigidbody;
 
-  private bool _isAirLaunchRequested;
+  private bool _isInWater;
 
   protected override void Awake() {
     base.Awake();
@@ -27,20 +29,18 @@ public class FlyMovementController : MovementController, IFlyable {
     _inputActions.Player.Jump.performed -= HandleJumpInput;
   }
 
-  protected override void Update() {
-    base.Update();
-  }
-
   private void FixedUpdate() {
+    if (_isInWater) return;
+
     Fly();
   }
 
-  private void OnTriggerEnter(Collider other) {
-    if (other.TryGetComponent<Water>(out _)) enabled = false;
+  private void OnTriggerStay(Collider other) {
+    if (other.TryGetComponent<Water>(out _)) _isInWater = true;
   }
 
   private void OnTriggerExit(Collider other) {
-    if (other.TryGetComponent<Water>(out _)) enabled = true;
+    if (other.TryGetComponent<Water>(out _)) _isInWater = false;
   }
 
   public void Fly() {

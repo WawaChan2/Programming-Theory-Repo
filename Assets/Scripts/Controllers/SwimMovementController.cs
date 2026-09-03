@@ -2,8 +2,22 @@ using UnityEngine;
 
 public class SwimMovementController : MovementController, ISwimmable {
 
+  [SerializeField] private float _horizontalSpeed;
+  [SerializeField] private float _verticalSpeed;
+
+  private Vector2 _moveInput;
+
+  private float _ascendingInput;
+  private float _descendingInput;
+
+  private Rigidbody _rigidbody;
+
+  private bool _isInWater;
+
   protected override void Awake() {
     base.Awake();
+
+    _rigidbody = GetComponentInChildren<Rigidbody>();
   }
 
   protected override void OnEnable() {
@@ -14,16 +28,55 @@ public class SwimMovementController : MovementController, ISwimmable {
     base.OnDisable();
   }
 
-  protected override void Update() {
-    base.Update();
+  private void Update() {
+    if (!_isInWater) return;
+
+    _moveInput = _inputActions.Player.Move.ReadValue<Vector2>();
+
+    _ascendingInput = _inputActions.Player.Jump.ReadValue<float>();
+    _descendingInput = _inputActions.Player.Crouch.ReadValue<float>();
   }
 
   private void FixedUpdate() {
+    if (!_isInWater) return;
+
     Swim();
   }
 
+  private void OnTriggerStay(Collider other) {
+    if (other.TryGetComponent<Water>(out _)) {
+      _rigidbody.useGravity = false;
+      _isInWater = true;
+    }
+  }
+
+  private void OnTriggerExit(Collider other) {
+    if (other.TryGetComponent<Water>(out _)) {
+      _rigidbody.useGravity = true;
+      _isInWater = false;
+    }
+  }
+
   public void Swim() {
-    throw new System.NotImplementedException();
+    SwimHorizontally();
+    SwimVertically();
+  }
+
+  private void SwimHorizontally() {
+    Vector3 movement = new(_moveInput.x, 0, _moveInput.y);
+
+    Vector3 horizontalVelocity = _horizontalSpeed * movement;
+
+    _rigidbody.linearVelocity = new Vector3(horizontalVelocity.x, _rigidbody.linearVelocity.y, horizontalVelocity.z);
+  }
+
+  private void SwimVertically() {
+    float verticalInput = _ascendingInput - _descendingInput;
+
+    Vector3 verticalVelocity = _rigidbody.linearVelocity;
+    verticalVelocity.y = verticalInput * _verticalSpeed;
+
+    _rigidbody.linearVelocity = verticalVelocity;
   }
 
 }
