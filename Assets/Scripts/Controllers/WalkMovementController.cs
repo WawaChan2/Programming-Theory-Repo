@@ -34,6 +34,7 @@ public class WalkMovementController : MovementController, IWalkable {
     if (_isInWater) return;
 
     Walk();
+    UpdateFaceDirection();
   }
 
   private void OnTriggerStay(Collider other) {
@@ -50,6 +51,17 @@ public class WalkMovementController : MovementController, IWalkable {
     Vector3 horizontalVelocity = _movementSpeed * movement;
 
     _rigidbody.linearVelocity = new Vector3(horizontalVelocity.x, _rigidbody.linearVelocity.y, horizontalVelocity.z);
+  }
+
+  private void UpdateFaceDirection() {
+    float angleInRadian;
+
+    if (_moveInput.y == 0 && _moveInput.x == 0) angleInRadian = 0;
+    else angleInRadian = -Mathf.Atan2(_moveInput.y, _moveInput.x) + Mathf.PI / 2;
+
+    float angleInDegree = angleInRadian * Mathf.Rad2Deg;
+
+    _rigidbody.rotation = Quaternion.Euler(0, angleInDegree, 0);
   }
 
 }

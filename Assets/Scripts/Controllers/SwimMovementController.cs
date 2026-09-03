@@ -41,6 +41,7 @@ public class SwimMovementController : MovementController, ISwimmable {
     if (!_isInWater) return;
 
     Swim();
+    UpdateFaceDirection();
   }
 
   private void OnTriggerStay(Collider other) {
@@ -77,6 +78,17 @@ public class SwimMovementController : MovementController, ISwimmable {
     verticalVelocity.y = verticalInput * _verticalSpeed;
 
     _rigidbody.linearVelocity = verticalVelocity;
+  }
+
+  private void UpdateFaceDirection() {
+    float angleInRadian;
+
+    if (_moveInput.y == 0 && _moveInput.x == 0) angleInRadian = 0;
+    else angleInRadian = -Mathf.Atan2(_moveInput.y, _moveInput.x) + Mathf.PI / 2;
+
+    float angleInDegree = angleInRadian * Mathf.Rad2Deg;
+
+    _rigidbody.rotation = Quaternion.Euler(0, angleInDegree, 0);
   }
 
 }
