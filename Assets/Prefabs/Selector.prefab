@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685739797035482931}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
@@ -103,3 +103,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636aa4139e39d6d4994a13771290dc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Selector
+  _defaultOffset: {x: 0, y: 1, z: 0}
+  _defaultScale: 0.5

@@ -28,13 +28,14 @@ public class WalkMovementController : MovementController, IWalkable {
     if (_isInWater) return;
 
     _moveInput = _inputActions.Player.Move.ReadValue<Vector2>();
+
+    UpdateFaceDirection();
   }
 
   private void FixedUpdate() {
     if (_isInWater) return;
 
     Walk();
-    UpdateFaceDirection();
   }
 
   private void OnTriggerStay(Collider other) {
@@ -61,7 +62,7 @@ public class WalkMovementController : MovementController, IWalkable {
 
     float angleInDegree = angleInRadian * Mathf.Rad2Deg;
 
-    _rigidbody.rotation = Quaternion.Euler(0, angleInDegree, 0);
+    transform.rotation = Quaternion.Euler(0, angleInDegree, 0);
   }
 
 }

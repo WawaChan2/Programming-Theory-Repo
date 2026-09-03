@@ -35,13 +35,14 @@ public class SwimMovementController : MovementController, ISwimmable {
 
     _ascendingInput = _inputActions.Player.Jump.ReadValue<float>();
     _descendingInput = _inputActions.Player.Crouch.ReadValue<float>();
+
+    UpdateFaceDirection();
   }
 
   private void FixedUpdate() {
     if (!_isInWater) return;
 
     Swim();
-    UpdateFaceDirection();
   }
 
   private void OnTriggerStay(Collider other) {
@@ -88,7 +89,7 @@ public class SwimMovementController : MovementController, ISwimmable {
 
     float angleInDegree = angleInRadian * Mathf.Rad2Deg;
 
-    _rigidbody.rotation = Quaternion.Euler(0, angleInDegree, 0);
+    transform.rotation = Quaternion.Euler(0, angleInDegree, 0);
   }
 
 }

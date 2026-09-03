@@ -1521,26 +1521,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Selector
       objectReference: {fileID: 0}
-    - target: {fileID: 1685739797035482931, guid: b6d56819dc9c5d54a80a3c8c2ddc156a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863763898875777457, guid: b6d56819dc9c5d54a80a3c8c2ddc156a, type: 3}
-      propertyPath: _offset.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863763898875777457, guid: b6d56819dc9c5d54a80a3c8c2ddc156a, type: 3}
-      propertyPath: _mainManager
-      value: 
-      objectReference: {fileID: 252360444}
-    - target: {fileID: 1863763898875777457, guid: b6d56819dc9c5d54a80a3c8c2ddc156a, type: 3}
-      propertyPath: _defaultScale
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863763898875777457, guid: b6d56819dc9c5d54a80a3c8c2ddc156a, type: 3}
-      propertyPath: _defaultOffset.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4512345256945875405, guid: b6d56819dc9c5d54a80a3c8c2ddc156a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
