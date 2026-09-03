@@ -1,14 +1,26 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MainManager : MonoBehaviour {
 
+  public static MainManager Instance { get; private set; }
+
   public Animal SelectedAnimal { get; private set; }
+
+  public event Action OnAnimalSelected;
 
   private InputSystem_Actions _inputActions;
 
   private void Awake() {
+    if (Instance != null && Instance != this) {
+      Destroy(gameObject);
+      return;
+    }
+
+    Instance = this;
+
     _inputActions = new InputSystem_Actions();
   }
 
@@ -45,6 +57,8 @@ public class MainManager : MonoBehaviour {
     cinemachineCamera.Priority = 10;
 
     SelectedAnimal = animal;
+
+    OnAnimalSelected?.Invoke();
   }
 
   private void DeselectCurrentAnimal() {

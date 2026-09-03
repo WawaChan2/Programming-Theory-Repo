@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 3146687319623593428}
   - component: {fileID: 6816188649640221216}
   - component: {fileID: 8578566095968104249}
+  - component: {fileID: 4778997548408132658}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -690,6 +691,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bccbda2785e5c6428a7f1732a396895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Animal
+--- !u!114 &4778997548408132658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110340999807057493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6246f55f0f83913488ee8d867c635839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectorOptions
+  _selectorOffset: {x: 0, y: 0.8, z: 0}
+  _selectorScale: 0.3
 --- !u!1 &4204483851826349953
 GameObject:
   m_ObjectHideFlags: 0

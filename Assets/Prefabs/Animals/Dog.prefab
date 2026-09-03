@@ -1076,6 +1076,7 @@ GameObject:
   - component: {fileID: 5570636759771183484}
   - component: {fileID: 7581098155867409113}
   - component: {fileID: 4731544566477187462}
+  - component: {fileID: 924094031953557336}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -1174,6 +1175,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bccbda2785e5c6428a7f1732a396895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Animal
+--- !u!114 &924094031953557336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141307537590111928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6246f55f0f83913488ee8d867c635839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectorOptions
+  _selectorOffset: {x: 0, y: 1, z: 0}
+  _selectorScale: 0.4
 --- !u!1 &7160893274212992574
 GameObject:
   m_ObjectHideFlags: 0
