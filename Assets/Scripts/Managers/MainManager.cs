@@ -2,6 +2,7 @@ using System;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour {
 
@@ -34,6 +35,10 @@ public class MainManager : MonoBehaviour {
     _inputActions.Disable();
 
     _inputActions.UI.Click.performed -= HandleClickInput;
+  }
+
+  public void ReturnToMenu() {
+    SceneManager.LoadScene(0);
   }
 
   private void HandleClickInput(InputAction.CallbackContext context) {

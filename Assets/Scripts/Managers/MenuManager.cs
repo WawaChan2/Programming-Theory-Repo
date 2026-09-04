@@ -23,12 +23,12 @@ public class MenuManager : MonoBehaviour {
     DontDestroyOnLoad(gameObject);
   }
 
-  public void Save(params TransformData[] datas) {
+  public void Save(List<TransformData> dataInputs) {
     TransformDataRepository dataRepository = new() {
       transformDataStore = new()
     };
 
-    foreach (var data in datas) dataRepository.transformDataStore.Add(data);
+    foreach (var data in dataInputs) dataRepository.transformDataStore.Add(data);
 
     string json = JsonUtility.ToJson(dataRepository);
 

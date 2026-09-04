@@ -12,14 +12,14 @@ public class WalkMovementController : MovementController, IWalkable {
 
   private bool _isInWater;
 
-  private float _lastAngleInAngle;
+  private float _lastAngleInDegree;
 
   protected override void Awake() {
     base.Awake();
 
     _rigidbody = GetComponentInChildren<Rigidbody>();
 
-    _lastAngleInAngle = transform.rotation.y;
+    _lastAngleInDegree = transform.rotation.y;
   }
 
   protected override void OnEnable() {
@@ -63,10 +63,10 @@ public class WalkMovementController : MovementController, IWalkable {
   private void UpdateFaceDirection() {
     if (_moveInput.x != 0 || _moveInput.y != 0) {
       float angleInRadian = -Mathf.Atan2(_moveInput.y, _moveInput.x) + Mathf.PI / 2;
-      _lastAngleInAngle = angleInRadian * Mathf.Rad2Deg;
+      _lastAngleInDegree = angleInRadian * Mathf.Rad2Deg;
     }
 
-    Quaternion targetRotation = Quaternion.Euler(0, _lastAngleInAngle, 0);
+    Quaternion targetRotation = Quaternion.Euler(0, _lastAngleInDegree, 0);
 
     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSmoothness * Time.deltaTime);
   }
