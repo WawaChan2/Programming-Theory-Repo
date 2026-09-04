@@ -22,6 +22,8 @@ public class SwimMovementController : MovementController, ISwimmable {
     base.Awake();
 
     _rigidbody = GetComponentInChildren<Rigidbody>();
+
+    _lastAngleInAngle = transform.rotation.y;
   }
 
   protected override void OnEnable() {

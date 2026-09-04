@@ -18,6 +18,8 @@ public class WalkMovementController : MovementController, IWalkable {
     base.Awake();
 
     _rigidbody = GetComponentInChildren<Rigidbody>();
+
+    _lastAngleInAngle = transform.rotation.y;
   }
 
   protected override void OnEnable() {
