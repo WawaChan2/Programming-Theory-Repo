@@ -1,8 +1,15 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Materials/Glass_mat.mat.meta
 guid: d8988dd0dfd8e604da682f2ac34b5c6a
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
+========
+guid: e73a58f6e2794ae7b1b7e50b7fb811b0
+timeCreated: 1484172806
+licenseType: Pro
+NativeFormatImporter:
+>>>>>>>> title-screen:Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Drop Shadow.mat.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 

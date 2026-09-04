@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Aztech Games.meta
 guid: 0e126b84cb1a22f43860364af2ce904e
+========
+guid: 2082c4edcb8a6ba42945adfeb08a4040
+>>>>>>>> title-screen:Assets/Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
