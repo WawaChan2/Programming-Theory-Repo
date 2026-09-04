@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 6825571196385338812}
   - component: {fileID: 4372187449200586715}
   - component: {fileID: 8196043154796964557}
+  - component: {fileID: 7063417100588211776}
   m_Layer: 0
   m_Name: Pinguin
   m_TagString: Untagged
@@ -673,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwimMovementController
   _horizontalSpeed: 10
   _verticalSpeed: 3
+  _rotationSmoothness: 10
 --- !u!114 &6825571196385338812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,6 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkMovementController
   _movementSpeed: 10
+  _rotationSmoothness: 10
 --- !u!114 &4372187449200586715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,6 +715,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorOptions
   _selectorOffset: {x: 0, y: 1.7, z: 0}
   _selectorScale: 0.5
+--- !u!114 &7063417100588211776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694918204646144427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c26aa617057ef94eac78873a10a287c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionResetterOptions
+  _targetPosition: {x: 10, y: 1, z: 10}
 --- !u!1 &6061632512384178006
 GameObject:
   m_ObjectHideFlags: 0

@@ -566,6 +566,7 @@ GameObject:
   - component: {fileID: 6816188649640221216}
   - component: {fileID: 8578566095968104249}
   - component: {fileID: 4778997548408132658}
+  - component: {fileID: 6920902136576809836}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -665,6 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkMovementController
   _movementSpeed: 10
+  _rotationSmoothness: 10
 --- !u!114 &6816188649640221216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwimMovementController
   _horizontalSpeed: 10
   _verticalSpeed: 3
+  _rotationSmoothness: 10
 --- !u!114 &8578566095968104249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +708,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorOptions
   _selectorOffset: {x: 0, y: 0.8, z: 0}
   _selectorScale: 0.3
+--- !u!114 &6920902136576809836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110340999807057493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c26aa617057ef94eac78873a10a287c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionResetterOptions
+  _targetPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &4204483851826349953
 GameObject:
   m_ObjectHideFlags: 0

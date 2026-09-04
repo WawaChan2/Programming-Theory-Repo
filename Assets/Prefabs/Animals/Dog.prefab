@@ -1077,6 +1077,7 @@ GameObject:
   - component: {fileID: 7581098155867409113}
   - component: {fileID: 4731544566477187462}
   - component: {fileID: 924094031953557336}
+  - component: {fileID: 8975913867168134567}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -1115,6 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WalkMovementController
   _movementSpeed: 10
+  _rotationSmoothness: 10
 --- !u!54 &5570636759771183484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1189,6 +1191,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectorOptions
   _selectorOffset: {x: 0, y: 1, z: 0}
   _selectorScale: 0.4
+--- !u!114 &8975913867168134567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141307537590111928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c26aa617057ef94eac78873a10a287c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionResetterOptions
+  _targetPosition: {x: 5, y: 0, z: 0}
 --- !u!1 &7160893274212992574
 GameObject:
   m_ObjectHideFlags: 0
